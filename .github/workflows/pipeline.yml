@@ -163,6 +163,7 @@ jobs:
       - name: Migate tracker-database
         run: |
           cf login -a "$CF_API_URL" -o "$CF_ORG" -s "$CF_SPACE" -u "$CF_USERNAME" -p "$CF_PASSWORD"
+          chmod +x ./gradlew
           ./gradlew cfMigrate
         env:
           CF_API_URL: ${{ secrets.CF_API_URL }}
